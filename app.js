@@ -1,10 +1,10 @@
 const inquirer = require('inquirer');
 //console.log(inquirer)
-//const fs = require('fs');
+const fs = require('fs');
 
 const pageHTML =  generatePage(name, github);
 
-//const generatePage = require('./src/page-template.js');
+const generatePage = require('./src/page-template.js');
 
 //fs.writeFile('./index.html', generatePage(name, github), err => {
   //if (err) throw new Error(err);
@@ -56,7 +56,7 @@ return inquirer.prompt([
 
 //promptUser().then(answers=> console.log(answers));
 
-// do mid 9.3.5
+// do mid 9.4.3
 
 const promptProject = portfolioData => {
   console.log(`
@@ -139,8 +139,15 @@ if (!portfolioData.projects) {
 };
 
 promptUser()
-.then(promptProject)
-.then(portfolioData => {
-  console.log(portfolioData);
-  
-});
+  .then(promptProject)
+  .then(portfolioData => {
+     const pageHTML = generatePage();
+
+    // fs.writeFile('./index.html', pageHTML, err => {
+    //   if (err) throw new Error(err);
+
+    //   console.log('Page created! Check out index.html in this directory to see it!');
+    // });
+  });
+
+  // At 9.4.3 lesson
